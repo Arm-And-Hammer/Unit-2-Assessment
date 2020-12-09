@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unit 2 Assessment</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>To Do List</h1>
+    <% if (todos.length) { %>
+
+    <% todos.forEach((todo, idx) => { %>
+      <ul class="flex">
+        <li><%= todo %></li>
+        <form action="/<%= todo %>?_method=DELETE" method="POST">
+          <button type="submit">X</button>
+        </form>
+      </ul>
+    <% }) %>
+    <br>
+    <% } else { %>
+      <h1>You have nothing To Do</h1>
+    <% } %>
+    <hr>
+    <form action="/" method="POST">
+      <input type="text" name="todo" required>
+      <button type="submit">Add to To Do List</button>
+    </form>
+  </body>
+</html>
